@@ -1,12 +1,12 @@
-function adj=a2adj(lista)
-%Recebe a lista de arestas e retorna a matriz de adjacentes.
-%Tipo = 1: rede não direcionada.
-%Tipo = 2: rede direcionada.
-maior=max(max(lista));
+function adj = matrizadj(arestas)
+%Recebe a lista de arestas e retorna a matriz de adjacência
+%Para rede não direcionada
+maior=max(max(arestas));
 adj=zeros(maior);
-linhas=size(lista,1);
+linhas=size(arestas,1);
 for i=1:linhas
-    fonte=lista(i,1);
-    destino=lista(i,2);
+    fonte=arestas(i,1);
+    destino=arestas(i,2);
     adj(destino,fonte)=1;
+    adj(fonte,destino)=1;
 end
